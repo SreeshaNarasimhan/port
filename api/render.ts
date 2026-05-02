@@ -1,3 +1,4 @@
+// @ts-ignore - Server bundle doesn't have type declarations
 import server from '../dist/server/index.js';
 
 function getOrigin(req: any) {
@@ -34,7 +35,7 @@ export default async function handler(req: any, res: any) {
   const response = await server.default.fetch(request);
 
   res.statusCode = response.status;
-  response.headers.forEach((value, key) => {
+  response.headers.forEach((value: string, key: string) => {
     if (key.toLowerCase() === 'transfer-encoding') return;
     res.setHeader(key, value);
   });
