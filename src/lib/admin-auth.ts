@@ -9,7 +9,9 @@ export function login(username: string, password: string): boolean {
   }
   return false;
 }
-export function logout() { localStorage.removeItem(KEY); }
+export function logout() {
+  localStorage.removeItem(KEY);
+}
 export function isAuthed(): boolean {
   if (typeof window === "undefined") return false;
   return localStorage.getItem(KEY) === "1";

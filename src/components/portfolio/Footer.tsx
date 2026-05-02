@@ -27,7 +27,8 @@ export function Footer() {
         aria-hidden
         className="absolute inset-0 -z-10"
         style={{
-          background: "radial-gradient(ellipse at 50% 100%, rgba(124,58,237,0.12) 0%, transparent 70%)",
+          background:
+            "radial-gradient(ellipse at 50% 100%, rgba(124,58,237,0.12) 0%, transparent 70%)",
         }}
       />
 
@@ -51,8 +52,8 @@ export function Footer() {
               </span>
             </div>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
-              AI & Data Science Student · Python Developer · ML Enthusiast.
-              Building the future, one model at a time.
+              AI & Data Science Student · Python Developer · ML Enthusiast. Building the future, one
+              model at a time.
             </p>
           </div>
 
@@ -61,13 +62,18 @@ export function Footer() {
             {navLinks.map((l) => (
               <button
                 key={l.id}
-                onClick={() => document.getElementById(l.id)?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() =>
+                  document.getElementById(l.id)?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {l.label}
               </button>
             ))}
-            <Link to="/admin" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link
+              to="/admin"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
               Admin
             </Link>
           </nav>
@@ -76,7 +82,9 @@ export function Footer() {
         {/* Divider */}
         <div
           className="h-px w-full mb-8"
-          style={{ background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.3), transparent)" }}
+          style={{
+            background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.3), transparent)",
+          }}
         />
 
         {/* Bottom row */}

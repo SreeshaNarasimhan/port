@@ -3,13 +3,16 @@
   "builds": [
     {
       "src": "api/render.ts",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["dist/**"]
+      }
     }
   ],
   "routes": [
     {
       "src": "/assets/(.*)",
-      "dest": "/dist/client/assets/$1"
+      "dest": "/api/render?file=/assets/$1"
     },
     {
       "src": "/(.*)",

@@ -15,7 +15,12 @@ export function Achievements({ items }: { items: Achievement[] }) {
   const [active, setActive] = useState<Achievement | null>(null);
 
   return (
-    <Section id="achievements" eyebrow="Recognition" title="Achievements & Awards" bgImage={bgAchievements}>
+    <Section
+      id="achievements"
+      eyebrow="Recognition"
+      title="Achievements & Awards"
+      bgImage={bgAchievements}
+    >
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((a, i) => {
           const col = BADGE_COLORS[i % BADGE_COLORS.length];
@@ -46,12 +51,18 @@ export function Achievements({ items }: { items: Achievement[] }) {
                 />
                 <div
                   className="absolute inset-0"
-                  style={{ background: `linear-gradient(to top, rgba(5,8,24,0.9) 0%, transparent 60%)` }}
+                  style={{
+                    background: `linear-gradient(to top, rgba(5,8,24,0.9) 0%, transparent 60%)`,
+                  }}
                 />
                 {/* Trophy badge */}
                 <div
                   className="absolute top-3 left-3 w-9 h-9 rounded-xl flex items-center justify-center text-lg"
-                  style={{ background: col.bg, border: `1px solid ${col.border}`, backdropFilter: "blur(8px)" }}
+                  style={{
+                    background: col.bg,
+                    border: `1px solid ${col.border}`,
+                    backdropFilter: "blur(8px)",
+                  }}
                 >
                   {col.icon}
                 </div>
@@ -66,7 +77,10 @@ export function Achievements({ items }: { items: Achievement[] }) {
                   <Calendar className="h-3.5 w-3.5 text-muted-foreground shrink-0" />
                   <span className="text-xs text-muted-foreground">{a.date}</span>
                 </div>
-                <h3 className="font-bold text-base leading-snug" style={{ color: "var(--foreground)" }}>
+                <h3
+                  className="font-bold text-base leading-snug"
+                  style={{ color: "var(--foreground)" }}
+                >
                   {a.title}
                 </h3>
                 <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2">{a.description}</p>
@@ -126,7 +140,9 @@ export function Achievements({ items }: { items: Achievement[] }) {
                   <span>{active.date}</span>
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-gradient">{active.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{active.description}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {active.description}
+                </p>
               </div>
             </motion.div>
           </motion.div>

@@ -30,23 +30,46 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Sreesha Narasimhan — AI & Data Science Developer" },
-      { name: "description", content: "Portfolio of Sreesha Narasimhan, AI & Data Science student, Python developer and ML enthusiast." },
+      {
+        name: "description",
+        content:
+          "Portfolio of Sreesha Narasimhan, AI & Data Science student, Python developer and ML enthusiast.",
+      },
       { name: "author", content: "Sreesha Narasimhan" },
       { property: "og:title", content: "Sreesha Narasimhan — AI & Data Science Developer" },
-      { property: "og:description", content: "Portfolio of Sreesha Narasimhan, AI & Data Science student, Python developer and ML enthusiast." },
+      {
+        property: "og:description",
+        content:
+          "Portfolio of Sreesha Narasimhan, AI & Data Science student, Python developer and ML enthusiast.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Sreesha Narasimhan — AI & Data Science Developer" },
-      { name: "twitter:description", content: "Portfolio of Sreesha Narasimhan, AI & Data Science student, Python developer and ML enthusiast." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/546136c5-78ef-42a2-a2fb-aca5ba7dca38/id-preview-043ce043--7219e37f-da93-4384-95b3-3a44c6dab01d.lovable.app-1777625385526.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/546136c5-78ef-42a2-a2fb-aca5ba7dca38/id-preview-043ce043--7219e37f-da93-4384-95b3-3a44c6dab01d.lovable.app-1777625385526.png" },
+      {
+        name: "twitter:description",
+        content:
+          "Portfolio of Sreesha Narasimhan, AI & Data Science student, Python developer and ML enthusiast.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/546136c5-78ef-42a2-a2fb-aca5ba7dca38/id-preview-043ce043--7219e37f-da93-4384-95b3-3a44c6dab01d.lovable.app-1777625385526.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/546136c5-78ef-42a2-a2fb-aca5ba7dca38/id-preview-043ce043--7219e37f-da93-4384-95b3-3a44c6dab01d.lovable.app-1777625385526.png",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,

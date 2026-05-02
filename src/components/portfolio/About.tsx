@@ -4,9 +4,24 @@ import { Section, fadeUp } from "./Section";
 import type { PortfolioData } from "@/lib/portfolio-data";
 
 const CARD_COLORS = [
-  { bg: "rgba(124,58,237,0.12)", border: "rgba(124,58,237,0.3)", icon: "#7c3aed", glow: "rgba(124,58,237,0.2)" },
-  { bg: "rgba(6,182,212,0.12)",  border: "rgba(6,182,212,0.3)",  icon: "#06b6d4", glow: "rgba(6,182,212,0.2)" },
-  { bg: "rgba(16,185,129,0.12)", border: "rgba(16,185,129,0.3)", icon: "#10b981", glow: "rgba(16,185,129,0.2)" },
+  {
+    bg: "rgba(124,58,237,0.12)",
+    border: "rgba(124,58,237,0.3)",
+    icon: "#7c3aed",
+    glow: "rgba(124,58,237,0.2)",
+  },
+  {
+    bg: "rgba(6,182,212,0.12)",
+    border: "rgba(6,182,212,0.3)",
+    icon: "#06b6d4",
+    glow: "rgba(6,182,212,0.2)",
+  },
+  {
+    bg: "rgba(16,185,129,0.12)",
+    border: "rgba(16,185,129,0.3)",
+    icon: "#10b981",
+    glow: "rgba(16,185,129,0.2)",
+  },
 ];
 
 export function About({ about }: { about: PortfolioData["about"] }) {
@@ -35,7 +50,9 @@ export function About({ about }: { about: PortfolioData["about"] }) {
               {/* Background glow */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
-                style={{ background: `radial-gradient(circle at 30% 30%, ${col.glow} 0%, transparent 60%)` }}
+                style={{
+                  background: `radial-gradient(circle at 30% 30%, ${col.glow} 0%, transparent 60%)`,
+                }}
               />
 
               {/* Corner accent */}
@@ -66,7 +83,9 @@ export function About({ about }: { about: PortfolioData["about"] }) {
               {/* Bottom accent line */}
               <div
                 className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ background: `linear-gradient(90deg, transparent, ${col.icon}, transparent)` }}
+                style={{
+                  background: `linear-gradient(90deg, transparent, ${col.icon}, transparent)`,
+                }}
               />
             </motion.div>
           );
@@ -82,18 +101,27 @@ export function About({ about }: { about: PortfolioData["about"] }) {
         className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4"
       >
         {[
-          { emoji: "🎓", text: "2nd Year B.Tech — AI & Data Science", sub: "AVS Engineering College" },
+          {
+            emoji: "🎓",
+            text: "2nd Year B.Tech — AI & Data Science",
+            sub: "AVS Engineering College",
+          },
           { emoji: "🌍", text: "Based in Tamil Nadu, India", sub: "Open to remote / hybrid roles" },
           { emoji: "⚡", text: "Fast learner, fast builder", sub: "Ship it, then iterate" },
         ].map((f, i) => (
           <div
             key={i}
             className="flex items-start gap-3 p-4 rounded-xl"
-            style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}
+            style={{
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.06)",
+            }}
           >
             <span className="text-2xl">{f.emoji}</span>
             <div>
-              <p className="text-sm font-semibold" style={{ color: "var(--foreground)" }}>{f.text}</p>
+              <p className="text-sm font-semibold" style={{ color: "var(--foreground)" }}>
+                {f.text}
+              </p>
               <p className="text-xs text-muted-foreground mt-0.5">{f.sub}</p>
             </div>
           </div>

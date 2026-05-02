@@ -35,7 +35,9 @@ export function SoftSkills({ items }: { items: AboutCard[] }) {
               {/* BG glow */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
-                style={{ background: `radial-gradient(circle at 20% 20%, ${meta.bg} 0%, transparent 60%)` }}
+                style={{
+                  background: `radial-gradient(circle at 20% 20%, ${meta.bg} 0%, transparent 60%)`,
+                }}
               />
 
               {/* Emoji icon */}
@@ -46,7 +48,10 @@ export function SoftSkills({ items }: { items: AboutCard[] }) {
                 {meta.emoji}
               </div>
 
-              <h3 className="relative z-10 font-bold text-lg mb-1.5" style={{ color: "var(--foreground)" }}>
+              <h3
+                className="relative z-10 font-bold text-lg mb-1.5"
+                style={{ color: "var(--foreground)" }}
+              >
                 {c.title}
               </h3>
               <p className="relative z-10 text-sm text-muted-foreground leading-relaxed">
@@ -56,7 +61,9 @@ export function SoftSkills({ items }: { items: AboutCard[] }) {
               {/* Bottom line */}
               <div
                 className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ background: `linear-gradient(90deg, transparent, ${meta.color}, transparent)` }}
+                style={{
+                  background: `linear-gradient(90deg, transparent, ${meta.color}, transparent)`,
+                }}
               />
             </motion.div>
           );

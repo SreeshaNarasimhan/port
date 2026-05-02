@@ -26,13 +26,23 @@ function AdminLogin() {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
-      <div aria-hidden className="absolute -top-32 -left-32 h-96 w-96 rounded-full gradient-brand opacity-20 blur-3xl" />
-      <div aria-hidden className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full gradient-brand opacity-20 blur-3xl" />
-      <Link to="/" className="absolute top-4 left-4 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
+      <div
+        aria-hidden
+        className="absolute -top-32 -left-32 h-96 w-96 rounded-full gradient-brand opacity-20 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full gradient-brand opacity-20 blur-3xl"
+      />
+      <Link
+        to="/"
+        className="absolute top-4 left-4 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+      >
         <ArrowLeft className="h-4 w-4" /> Back to site
       </Link>
       <motion.form
-        initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
         onSubmit={submit}
         className="w-full max-w-sm rounded-2xl glass p-8 shadow-glow"
       >
@@ -44,14 +54,25 @@ function AdminLogin() {
         <div className="mt-6 space-y-3">
           <div>
             <label className="text-sm font-medium">Username</label>
-            <input value={u} onChange={(e) => setU(e.target.value)} className="mt-1.5 w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
+            <input
+              value={u}
+              onChange={(e) => setU(e.target.value)}
+              className="mt-1.5 w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+            />
           </div>
           <div>
             <label className="text-sm font-medium">Password</label>
-            <input type="password" value={p} onChange={(e) => setP(e.target.value)} className="mt-1.5 w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
+            <input
+              type="password"
+              value={p}
+              onChange={(e) => setP(e.target.value)}
+              className="mt-1.5 w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+            />
           </div>
           {err && <p className="text-sm text-destructive">{err}</p>}
-          <button className="w-full h-11 rounded-md gradient-brand text-primary-foreground font-medium hover-glow">Sign In</button>
+          <button className="w-full h-11 rounded-md gradient-brand text-primary-foreground font-medium hover-glow">
+            Sign In
+          </button>
           <p className="text-xs text-muted-foreground text-center">Demo: admin / admin123</p>
         </div>
       </motion.form>

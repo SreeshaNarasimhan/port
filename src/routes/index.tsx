@@ -12,17 +12,18 @@ import { Achievements } from "@/components/portfolio/Achievements";
 import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
 
-export const Route = createFileRoute("/")(
-  {
-    component: Index,
-  },
-);
+export const Route = createFileRoute("/")({
+  component: Index,
+});
 
 function Index() {
   const data = usePortfolio();
   return (
     <ThemeProvider>
-      <div className="min-h-screen" style={{ background: "var(--background)", color: "var(--foreground)" }}>
+      <div
+        className="min-h-screen"
+        style={{ background: "var(--background)", color: "var(--foreground)" }}
+      >
         <Navbar />
         <main>
           <Hero hero={data.hero} />

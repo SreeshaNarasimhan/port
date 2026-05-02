@@ -3,7 +3,13 @@ import { type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export function Section({
-  id, eyebrow, title, subtitle, children, className, bgImage,
+  id,
+  eyebrow,
+  title,
+  subtitle,
+  children,
+  className,
+  bgImage,
 }: {
   id: string;
   eyebrow?: string;
@@ -33,7 +39,8 @@ export function Section({
         aria-hidden
         className="absolute inset-0 -z-10"
         style={{
-          background: "linear-gradient(to bottom, var(--background) 0%, transparent 20%, transparent 80%, var(--background) 100%)",
+          background:
+            "linear-gradient(to bottom, var(--background) 0%, transparent 20%, transparent 80%, var(--background) 100%)",
         }}
       />
 
@@ -68,7 +75,9 @@ export function Section({
             {title && (
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mt-3">
                 <span className="text-gradient">{title.split(" ")[0]}</span>{" "}
-                <span style={{ color: "var(--foreground)" }}>{title.split(" ").slice(1).join(" ")}</span>
+                <span style={{ color: "var(--foreground)" }}>
+                  {title.split(" ").slice(1).join(" ")}
+                </span>
               </h2>
             )}
             {subtitle && (
@@ -79,9 +88,15 @@ export function Section({
 
             {/* Decorative line */}
             <div className="mt-6 flex items-center justify-center gap-3">
-              <div className="h-px w-16 opacity-30" style={{ background: "var(--gradient-brand)" }} />
+              <div
+                className="h-px w-16 opacity-30"
+                style={{ background: "var(--gradient-brand)" }}
+              />
               <div className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--brand)" }} />
-              <div className="h-px w-16 opacity-30" style={{ background: "var(--gradient-brand)" }} />
+              <div
+                className="h-px w-16 opacity-30"
+                style={{ background: "var(--gradient-brand)" }}
+              />
             </div>
           </motion.div>
         )}

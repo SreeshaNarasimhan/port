@@ -32,7 +32,10 @@ export function Navbar() {
       const y = window.scrollY + 120;
       for (let i = sections.length - 1; i >= 0; i--) {
         const s = sections[i];
-        if (s && s.offsetTop <= y) { setActive(links[i].id); break; }
+        if (s && s.offsetTop <= y) {
+          setActive(links[i].id);
+          break;
+        }
       }
     };
     onScroll();
@@ -54,17 +57,12 @@ export function Navbar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={cn(
           "fixed top-0 inset-x-0 z-50 transition-all duration-300",
-          scrolled
-            ? "glass shadow-card"
-            : "bg-transparent",
+          scrolled ? "glass shadow-card" : "bg-transparent",
         )}
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 h-16 flex items-center justify-between">
           {/* Logo */}
-          <button
-            onClick={() => go("home")}
-            className="flex items-center gap-2 group"
-          >
+          <button onClick={() => go("home")} className="flex items-center gap-2 group">
             <div
               className="w-8 h-8 rounded-lg flex items-center justify-center"
               style={{ background: "var(--gradient-brand)" }}
@@ -122,7 +120,10 @@ export function Navbar() {
             {/* Hire me button */}
             <a
               href="#contact"
-              onClick={(e) => { e.preventDefault(); go("contact"); }}
+              onClick={(e) => {
+                e.preventDefault();
+                go("contact");
+              }}
               className="hidden md:inline-flex items-center gap-1.5 h-9 px-4 rounded-lg text-sm font-semibold text-white btn-neon"
             >
               Hire Me 🚀
@@ -174,11 +175,7 @@ export function Navbar() {
                       ? "text-white"
                       : "text-muted-foreground hover:text-foreground hover:bg-white/5",
                   )}
-                  style={
-                    active === l.id
-                      ? { background: "var(--gradient-brand)" }
-                      : {}
-                  }
+                  style={active === l.id ? { background: "var(--gradient-brand)" } : {}}
                 >
                   {l.label}
                 </button>
@@ -186,7 +183,10 @@ export function Navbar() {
               <div className="h-px my-1" style={{ background: "var(--glass-border)" }} />
               <a
                 href="#contact"
-                onClick={(e) => { e.preventDefault(); go("contact"); }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  go("contact");
+                }}
                 className="text-center px-4 py-2.5 rounded-xl text-sm font-semibold text-white btn-neon"
               >
                 Hire Me 🚀
@@ -206,10 +206,7 @@ export function Navbar() {
             className="fixed bottom-6 right-6 z-[100] h-12 w-12 rounded-2xl flex items-center justify-center text-white shadow-glow hover:scale-110 transition-transform btn-neon md:h-14 md:w-14"
             aria-label="Back to top"
           >
-            <motion.div
-              animate={{ y: [0, -4, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
+            <motion.div animate={{ y: [0, -4, 0] }} transition={{ duration: 2, repeat: Infinity }}>
               <ArrowUp className="h-6 w-6" />
             </motion.div>
           </motion.button>

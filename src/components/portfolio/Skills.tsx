@@ -108,7 +108,9 @@ function SkillCard({ skill, i }: { skill: Skill; i: number }) {
       {/* Glow backdrop */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
-        style={{ background: `radial-gradient(circle at center, ${brandColor}18 0%, transparent 70%)` }}
+        style={{
+          background: `radial-gradient(circle at center, ${brandColor}18 0%, transparent 70%)`,
+        }}
       />
 
       {/* Logo */}
@@ -158,7 +160,12 @@ function SkillCard({ skill, i }: { skill: Skill; i: number }) {
 
 export function Skills({ skills }: { skills: Skill[] }) {
   return (
-    <Section id="skills" eyebrow="Stack" title="Technical Skills" subtitle="My toolkit for building intelligent applications and data-driven solutions.">
+    <Section
+      id="skills"
+      eyebrow="Stack"
+      title="Technical Skills"
+      subtitle="My toolkit for building intelligent applications and data-driven solutions."
+    >
       <div className="space-y-14">
         {groups.map((g) => {
           const items = skills.filter((s) => s.category === g);
@@ -181,7 +188,10 @@ export function Skills({ skills }: { skills: Skill[] }) {
                   {gm.icon}
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold uppercase tracking-widest" style={{ color: gm.color }}>
+                  <h3
+                    className="text-sm font-bold uppercase tracking-widest"
+                    style={{ color: gm.color }}
+                  >
                     {g}
                   </h3>
                   <p className="text-xs text-muted-foreground">{gm.label}</p>

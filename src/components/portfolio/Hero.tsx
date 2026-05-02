@@ -56,7 +56,15 @@ function ParticleCanvas() {
     resize();
     window.addEventListener("resize", resize);
 
-    const particles: { x: number; y: number; vx: number; vy: number; r: number; a: number; hue: number }[] = [];
+    const particles: {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      r: number;
+      a: number;
+      hue: number;
+    }[] = [];
     for (let i = 0; i < 80; i++) {
       particles.push({
         x: Math.random() * canvas.width,
@@ -111,7 +119,9 @@ function ParticleCanvas() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" style={{ opacity: 0.5 }} />;
+  return (
+    <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" style={{ opacity: 0.5 }} />
+  );
 }
 
 const stats = [
@@ -125,24 +135,40 @@ export function Hero({ hero }: { hero: HeroT }) {
   const typedRole = useTypingEffect(ROLES);
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden"
+    >
       {/* Aurora blobs */}
       <div aria-hidden className="absolute inset-0 -z-20 overflow-hidden">
         <div
           className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full animate-aurora-1"
-          style={{ background: "radial-gradient(circle, rgba(124,58,237,0.35) 0%, transparent 70%)", filter: "blur(60px)" }}
+          style={{
+            background: "radial-gradient(circle, rgba(124,58,237,0.35) 0%, transparent 70%)",
+            filter: "blur(60px)",
+          }}
         />
         <div
           className="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full animate-aurora-2"
-          style={{ background: "radial-gradient(circle, rgba(6,182,212,0.25) 0%, transparent 70%)", filter: "blur(60px)" }}
+          style={{
+            background: "radial-gradient(circle, rgba(6,182,212,0.25) 0%, transparent 70%)",
+            filter: "blur(60px)",
+          }}
         />
         <div
           className="absolute -bottom-40 left-1/3 w-[400px] h-[400px] rounded-full animate-aurora-3"
-          style={{ background: "radial-gradient(circle, rgba(168,85,247,0.25) 0%, transparent 70%)", filter: "blur(60px)" }}
+          style={{
+            background: "radial-gradient(circle, rgba(168,85,247,0.25) 0%, transparent 70%)",
+            filter: "blur(60px)",
+          }}
         />
         <div
           className="absolute top-10 right-1/4 w-[300px] h-[300px] rounded-full animate-aurora-1"
-          style={{ background: "radial-gradient(circle, rgba(16,185,129,0.2) 0%, transparent 70%)", filter: "blur(50px)", animationDelay: "-4s" }}
+          style={{
+            background: "radial-gradient(circle, rgba(16,185,129,0.2) 0%, transparent 70%)",
+            filter: "blur(50px)",
+            animationDelay: "-4s",
+          }}
         />
       </div>
 
@@ -218,7 +244,9 @@ export function Hero({ hero }: { hero: HeroT }) {
               style={{ color: "#a78bfa", fontFamily: "'JetBrains Mono', monospace" }}
             >
               &gt; {typedRole}
-              <span className="animate-cursor" style={{ color: "#7c3aed" }}>|</span>
+              <span className="animate-cursor" style={{ color: "#7c3aed" }}>
+                |
+              </span>
             </span>
           </motion.div>
 
@@ -306,7 +334,8 @@ export function Hero({ hero }: { hero: HeroT }) {
             <div
               className="absolute inset-0 rounded-[2.5rem] animate-pulse-ring"
               style={{
-                background: "conic-gradient(from 0deg, #7c3aed, #a855f7, #06b6d4, #10b981, #7c3aed)",
+                background:
+                  "conic-gradient(from 0deg, #7c3aed, #a855f7, #06b6d4, #10b981, #7c3aed)",
                 padding: "3px",
                 filter: "blur(2px)",
               }}
@@ -314,7 +343,10 @@ export function Hero({ hero }: { hero: HeroT }) {
             {/* Glow halo */}
             <div
               className="absolute -inset-6 rounded-[3rem] opacity-30"
-              style={{ background: "radial-gradient(circle, rgba(124,58,237,0.4) 0%, transparent 70%)", filter: "blur(20px)" }}
+              style={{
+                background: "radial-gradient(circle, rgba(124,58,237,0.4) 0%, transparent 70%)",
+                filter: "blur(20px)",
+              }}
             />
             {/* Image container */}
             <div
@@ -341,7 +373,11 @@ export function Hero({ hero }: { hero: HeroT }) {
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -top-3 -right-6 px-3 py-1.5 rounded-xl text-xs font-bold shadow-lg"
-              style={{ background: "rgba(124,58,237,0.9)", color: "white", border: "1px solid rgba(255,255,255,0.2)" }}
+              style={{
+                background: "rgba(124,58,237,0.9)",
+                color: "white",
+                border: "1px solid rgba(255,255,255,0.2)",
+              }}
             >
               <Sparkles className="h-3 w-3 inline mr-1" />
               AI Dev
@@ -350,7 +386,11 @@ export function Hero({ hero }: { hero: HeroT }) {
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               className="absolute -bottom-3 -left-6 px-3 py-1.5 rounded-xl text-xs font-bold shadow-lg"
-              style={{ background: "rgba(6,182,212,0.9)", color: "white", border: "1px solid rgba(255,255,255,0.2)" }}
+              style={{
+                background: "rgba(6,182,212,0.9)",
+                color: "white",
+                border: "1px solid rgba(255,255,255,0.2)",
+              }}
             >
               🐍 Python
             </motion.div>

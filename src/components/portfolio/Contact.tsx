@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Send, CheckCircle2, AlertCircle, MapPin, Clock } from "lucide-react";
+import {
+  Mail,
+  Github,
+  Linkedin,
+  Send,
+  CheckCircle2,
+  AlertCircle,
+  MapPin,
+  Clock,
+} from "lucide-react";
 import { z } from "zod";
 import { Section, fadeUp } from "./Section";
 import type { Hero } from "@/lib/portfolio-data";
@@ -53,10 +62,7 @@ export function Contact({ hero }: { hero: Hero }) {
     >
       <div className="grid lg:grid-cols-5 gap-6">
         {/* Left info panel */}
-        <motion.div
-          {...fadeUp}
-          className="lg:col-span-2 space-y-4"
-        >
+        <motion.div {...fadeUp} className="lg:col-span-2 space-y-4">
           {/* Availability card */}
           <div
             className="p-5 rounded-2xl"
@@ -82,7 +88,11 @@ export function Contact({ hero }: { hero: Hero }) {
           {/* Contact links */}
           <div
             className="p-5 rounded-2xl space-y-3"
-            style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", backdropFilter: "blur(12px)" }}
+            style={{
+              background: "var(--glass-bg)",
+              border: "1px solid var(--glass-border)",
+              backdropFilter: "blur(12px)",
+            }}
           >
             <h3 className="font-bold text-base mb-4" style={{ color: "var(--foreground)" }}>
               Reach Out Directly
@@ -91,7 +101,10 @@ export function Contact({ hero }: { hero: Hero }) {
             <a
               href={`mailto:${hero.email}`}
               className="flex items-center gap-3 p-3 rounded-xl transition-all hover:scale-[1.02] group"
-              style={{ background: "rgba(124,58,237,0.08)", border: "1px solid rgba(124,58,237,0.2)" }}
+              style={{
+                background: "rgba(124,58,237,0.08)",
+                border: "1px solid rgba(124,58,237,0.2)",
+              }}
             >
               <span
                 className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
@@ -101,7 +114,10 @@ export function Contact({ hero }: { hero: Hero }) {
               </span>
               <div className="min-w-0">
                 <div className="text-xs text-muted-foreground">Email</div>
-                <div className="text-sm font-semibold truncate" style={{ color: "var(--foreground)" }}>
+                <div
+                  className="text-sm font-semibold truncate"
+                  style={{ color: "var(--foreground)" }}
+                >
                   {hero.email}
                 </div>
               </div>
@@ -112,7 +128,10 @@ export function Contact({ hero }: { hero: Hero }) {
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-3 p-3 rounded-xl transition-all hover:scale-[1.02]"
-              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+              style={{
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}
             >
               <span
                 className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
@@ -133,7 +152,10 @@ export function Contact({ hero }: { hero: Hero }) {
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-3 p-3 rounded-xl transition-all hover:scale-[1.02]"
-              style={{ background: "rgba(10,102,194,0.1)", border: "1px solid rgba(10,102,194,0.25)" }}
+              style={{
+                background: "rgba(10,102,194,0.1)",
+                border: "1px solid rgba(10,102,194,0.25)",
+              }}
             >
               <span
                 className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
@@ -153,7 +175,10 @@ export function Contact({ hero }: { hero: Hero }) {
           {/* Location & timezone */}
           <div
             className="p-4 rounded-xl flex flex-col gap-2"
-            style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}
+            style={{
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.06)",
+            }}
           >
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <MapPin className="h-4 w-4 shrink-0" style={{ color: "#7c3aed" }} />
@@ -189,7 +214,10 @@ export function Contact({ hero }: { hero: Hero }) {
 
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold mb-1.5" style={{ color: "var(--foreground)" }}>
+              <label
+                className="block text-sm font-semibold mb-1.5"
+                style={{ color: "var(--foreground)" }}
+              >
                 Your Name
               </label>
               <input
@@ -206,7 +234,10 @@ export function Contact({ hero }: { hero: Hero }) {
               )}
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1.5" style={{ color: "var(--foreground)" }}>
+              <label
+                className="block text-sm font-semibold mb-1.5"
+                style={{ color: "var(--foreground)" }}
+              >
                 Email Address
               </label>
               <input
@@ -225,7 +256,10 @@ export function Contact({ hero }: { hero: Hero }) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold mb-1.5" style={{ color: "var(--foreground)" }}>
+            <label
+              className="block text-sm font-semibold mb-1.5"
+              style={{ color: "var(--foreground)" }}
+            >
               Message
             </label>
             <textarea
@@ -255,8 +289,19 @@ export function Contact({ hero }: { hero: Hero }) {
             ) : status === "loading" ? (
               <>
                 <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                  />
                 </svg>
                 Sending...
               </>

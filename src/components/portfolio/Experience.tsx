@@ -18,7 +18,10 @@ export function ExperienceEducation({
           <div className="flex items-center gap-3 mb-8">
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center"
-              style={{ background: "rgba(124,58,237,0.15)", border: "1px solid rgba(124,58,237,0.3)" }}
+              style={{
+                background: "rgba(124,58,237,0.15)",
+                border: "1px solid rgba(124,58,237,0.3)",
+              }}
             >
               <Briefcase className="h-5 w-5" style={{ color: "#7c3aed" }} />
             </div>
@@ -62,7 +65,11 @@ export function ExperienceEducation({
                       </h4>
                       <span
                         className="flex items-center gap-1 text-xs px-2.5 py-1 rounded-full font-medium"
-                        style={{ background: "rgba(124,58,237,0.12)", color: "#a78bfa", border: "1px solid rgba(124,58,237,0.2)" }}
+                        style={{
+                          background: "rgba(124,58,237,0.12)",
+                          color: "#a78bfa",
+                          border: "1px solid rgba(124,58,237,0.2)",
+                        }}
                       >
                         <Calendar className="h-3 w-3" />
                         {e.period}
@@ -88,7 +95,10 @@ export function ExperienceEducation({
           <div className="flex items-center gap-3 mb-8">
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center"
-              style={{ background: "rgba(16,185,129,0.15)", border: "1px solid rgba(16,185,129,0.3)" }}
+              style={{
+                background: "rgba(16,185,129,0.15)",
+                border: "1px solid rgba(16,185,129,0.3)",
+              }}
             >
               <GraduationCap className="h-5 w-5" style={{ color: "#10b981" }} />
             </div>
@@ -136,7 +146,11 @@ export function ExperienceEducation({
                       </h4>
                       <span
                         className="flex items-center gap-1 text-xs px-2.5 py-1 rounded-full font-medium"
-                        style={{ background: "rgba(16,185,129,0.1)", color: "#34d399", border: "1px solid rgba(16,185,129,0.2)" }}
+                        style={{
+                          background: "rgba(16,185,129,0.1)",
+                          color: "#34d399",
+                          border: "1px solid rgba(16,185,129,0.2)",
+                        }}
                       >
                         <Calendar className="h-3 w-3" />
                         {e.period}

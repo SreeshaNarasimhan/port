@@ -9,7 +9,10 @@ export function Projects({ projects }: { projects: Project[] }) {
   const [active, setActive] = useState<Project | null>(null);
   const [idx, setIdx] = useState(0);
 
-  const open = (p: Project) => { setActive(p); setIdx(0); };
+  const open = (p: Project) => {
+    setActive(p);
+    setIdx(0);
+  };
   const close = () => setActive(null);
 
   return (
@@ -63,7 +66,11 @@ export function Projects({ projects }: { projects: Project[] }) {
               {/* Tech count badge */}
               <div
                 className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold"
-                style={{ background: "rgba(0,0,0,0.6)", color: "#a78bfa", backdropFilter: "blur(8px)" }}
+                style={{
+                  background: "rgba(0,0,0,0.6)",
+                  color: "#a78bfa",
+                  backdropFilter: "blur(8px)",
+                }}
               >
                 <Layers className="h-3 w-3" />
                 {p.tech.length} tech
@@ -80,11 +87,11 @@ export function Projects({ projects }: { projects: Project[] }) {
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {p.tech.slice(0, 4).map((t) => (
-                  <span key={t} className="tech-badge">{t}</span>
+                  <span key={t} className="tech-badge">
+                    {t}
+                  </span>
                 ))}
-                {p.tech.length > 4 && (
-                  <span className="tech-badge">+{p.tech.length - 4}</span>
-                )}
+                {p.tech.length > 4 && <span className="tech-badge">+{p.tech.length - 4}</span>}
               </div>
             </div>
           </motion.button>
@@ -142,22 +149,32 @@ export function Projects({ projects }: { projects: Project[] }) {
 
                 <div
                   className="absolute inset-0"
-                  style={{ background: "linear-gradient(to top, rgba(5,8,24,0.8) 0%, transparent 50%)" }}
+                  style={{
+                    background: "linear-gradient(to top, rgba(5,8,24,0.8) 0%, transparent 50%)",
+                  }}
                 />
 
                 {active.images.length > 1 && (
                   <>
                     <button
-                      onClick={() => setIdx((i) => (i - 1 + active.images.length) % active.images.length)}
+                      onClick={() =>
+                        setIdx((i) => (i - 1 + active.images.length) % active.images.length)
+                      }
                       className="absolute left-3 top-1/2 -translate-y-1/2 h-9 w-9 rounded-xl inline-flex items-center justify-center"
-                      style={{ background: "rgba(0,0,0,0.6)", border: "1px solid rgba(255,255,255,0.1)" }}
+                      style={{
+                        background: "rgba(0,0,0,0.6)",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                      }}
                     >
                       <ChevronLeft className="h-4 w-4 text-white" />
                     </button>
                     <button
                       onClick={() => setIdx((i) => (i + 1) % active.images.length)}
                       className="absolute right-3 top-1/2 -translate-y-1/2 h-9 w-9 rounded-xl inline-flex items-center justify-center"
-                      style={{ background: "rgba(0,0,0,0.6)", border: "1px solid rgba(255,255,255,0.1)" }}
+                      style={{
+                        background: "rgba(0,0,0,0.6)",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                      }}
                     >
                       <ChevronRight className="h-4 w-4 text-white" />
                     </button>
@@ -169,7 +186,8 @@ export function Projects({ projects }: { projects: Project[] }) {
                           className="h-1.5 rounded-full transition-all duration-300"
                           style={{
                             width: i === idx ? 24 : 6,
-                            background: i === idx ? "var(--gradient-brand)" : "rgba(255,255,255,0.4)",
+                            background:
+                              i === idx ? "var(--gradient-brand)" : "rgba(255,255,255,0.4)",
                           }}
                         />
                       ))}
@@ -185,7 +203,9 @@ export function Projects({ projects }: { projects: Project[] }) {
                 </h3>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {active.tech.map((t) => (
-                    <span key={t} className="tech-badge">{t}</span>
+                    <span key={t} className="tech-badge">
+                      {t}
+                    </span>
                   ))}
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6">
