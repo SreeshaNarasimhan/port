@@ -2,10 +2,8 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// @ts-ignore - Server bundle doesn't have type declarations
-import server from '../dist/server/index.js';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function getOrigin(req: any) {
   const host = req.headers.host || 'localhost';
@@ -30,16 +28,29 @@ function makeHeaders(headers: Record<string, string | string[] | undefined>) {
   return result;
 }
 
+let serverModule: any = null;
+
+async function loadServer() {
+  if (serverModule) return serverModule;
+  try {
+    serverModule = await import(path.resolve(__dirname, '..', 'dist', 'server', 'index.js'));
+    return serverModule;
+  } catch (err) {
+    console.error('Failed to load server module:', err);
+    return null;
+  }
+}
+
 export default async function handler(req: any, res: any) {
   try {
     // Try to serve static assets from dist/client
-    const filePath = path.join(__dirname, '..', 'dist', 'client', req.url);
+    const assetPath = path.resolve(__dirname, '..', 'dist', 'client', req.url);
     
     try {
-      const stat = await fs.stat(filePath);
+      const stat = await fs.stat(assetPath);
       if (stat.isFile()) {
-        const content = await fs.readFile(filePath);
-        const ext = path.extname(filePath);
+        const content = await fs.readFile(assetPath);
+        const ext = path.extname(assetPath);
         const mimeTypes: Record<string, string> = {
           '.js': 'application/javascript',
           '.css': 'text/css',
@@ -61,10 +72,19 @@ export default async function handler(req: any, res: any) {
         return res.end(content);
       }
     } catch (err: any) {
-      if (err.code !== 'ENOENT') throw err;
+      if (err.code !== 'ENOENT') {
+        console.error('Error serving static file:', err);
+      }
     }
     
     // Fall through to SSR
+    const server = await loadServer();
+    if (!server || !server.default) {
+      console.error('Server module not available');
+      res.statusCode = 500;
+      return res.end('Server initialization failed');
+    }
+
     const origin = getOrigin(req);
     const request = new Request(origin + req.url, {
       method: req.method,
