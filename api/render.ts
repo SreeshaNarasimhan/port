@@ -49,8 +49,12 @@ async function loadServer() {
 
 export default async function handler(req: any, res: any) {
   try {
+    const origin = getOrigin(req);
+    const requestUrl = new URL(req.url, origin);
+    const actualPath = requestUrl.searchParams.get('path') || '/';
+    
     // Try to serve static assets from dist/client
-    const assetPath = path.join(projectRoot, "dist", "client", req.url);
+    const assetPath = path.join(projectRoot, "dist", "client", actualPath);
 
     try {
       const stat = await fs.stat(assetPath);
@@ -84,7 +88,7 @@ export default async function handler(req: any, res: any) {
     }
 
     // Fall through to SSR
-    console.log("Attempting SSR for:", req.url);
+    console.log("Attempting SSR for:", actualPath);
     const server = await loadServer();
     if (!server || !server.default) {
       console.error("Server module not available");
@@ -92,8 +96,7 @@ export default async function handler(req: any, res: any) {
       return res.end("Server initialization failed");
     }
 
-    const origin = getOrigin(req);
-    const request = new Request(origin + req.url, {
+    const request = new Request(origin + actualPath, {
       method: req.method,
       headers: makeHeaders(req.headers),
       body: req.method === "GET" || req.method === "HEAD" ? undefined : req,

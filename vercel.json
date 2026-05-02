@@ -1,22 +1,13 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/render.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["dist/**"]
-      }
+  "functions": {
+    "api/render.ts": {
+      "includeFiles": "dist/**"
     }
-  ],
-  "routes": [
+  },
+  "rewrites": [
     {
-      "src": "/assets/(.*)",
-      "dest": "/api/render?file=/assets/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/render"
+      "source": "/(.*)",
+      "destination": "/api/render?path=/$1"
     }
   ]
 }
